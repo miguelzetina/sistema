@@ -1,0 +1,100 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	{% block extrahead%}
+	{% endblock %}
+
+	<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+	<link rel="stylesheet" href="{% static 'css/base.css'%}">
+
+	<title>{% block head_title%}Sistema de Inventario{% endblock %}</title>
+</head>
+<body>
+	{% block header%}
+	<div class="container">
+	<nav class="navbar navbar-default">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="nav-toggler collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="{% url 'inventario:list' %}">Inicio</a>
+		</div>
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Semillas<span class="caret"></span></a>
+					<ul class="dropdown-menu">
+						<li><a href="{% url 'inventario:semilla' %}">Semillas</a></li>
+						<li><a href="#">Clientes</a></li>
+						<li><a href="#">Proveedores</a></li>
+						<li><a href="#">Facturas</a></li>
+					</ul>
+				</li>
+			</ul>
+
+
+            <form method="GET" class="navbar-form navbar-left">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Buscar" name="q" value="{{ request.GET.q }}">
+                </div>
+                <button type="submit" class="btn btn-default">Buscar</button>
+            </form>
+
+
+
+		<ul class="nav navbar-nav navbar-right">
+			<li class="dropdown">
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Opciones de sesión<span class="caret"></span></a>
+				<ul class="dropdown-menu">
+
+					<li><a href="#">Cerrar sesión</a></li>
+
+				</ul>
+			</li>
+		</ul>
+	</div>
+	</nav>
+	</div>
+	{% endblock %}
+	{% block content %}
+	{% endblock %}
+	<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+  	var js, fjs = d.getElementsByTagName(s)[0];
+  	if (d.getElementById(id)) return;
+  	js = d.createElement(s); js.id = id;
+  	js.src = "//connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v2.9";
+  	fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
+
+	{% block footer%}
+	<div class="container">
+	</div>
+	{% endblock%}
+
+    <script src="{% static 'js/jquery-2.1.4.min.js'%}"></script>
+
+	<script src="http://code.jquery.com/jquery-2.2.4.min.js"
+		integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+		crossorigin="anonymous">
+	</script>
+
+	<script src="{% static 'js/bootstrap.js'%}"></script>
+
+	<script src="{% static 'js/marked.min.js'%}"></script>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.6/marked.min.js"></script>
+
+	{% block extrajs %}
+
+	{% endblock %}
+</body>
+
+
+</html>

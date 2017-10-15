@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{%block head_title%}{{title}}|{{block.super}}{%endblock%}
+{% block content%}
+<div class="container">
+	<div class="row">
+        <div class="col-md-12 text-center">
+            <div class="thumbnail">
+                <div class="caption post-detail-item">
+                    <h1>¡Error 404!</h1>
+                    <br>
+                    <p>
+                        Lo sentimos, la página o recurso al que intenta acceder no se encuentra disponible.
+                    </p>
+                    <br>
+                    <p>
+                        Si lo desea, puede ir a la <a href="{% url 'inventario:list' %}">página principal</a>
+                    </p>
+                </div>
+            </div>
+	    </div>
+	</div>
+</div>
+
+{% endblock %}
