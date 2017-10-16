@@ -3,66 +3,72 @@
 {% block headtitle %}{{title}}|{{block.super}}
 {% endblock %}
 {% block content %}
-<div class="container">
-	<div class="row" >
-		<div class='col-md-5'>
-		<h1>Formulario de Ingreso</h1>
-		<form method="POST" action=""enctype='multipart/form-data'>
-			{% csrf_token %}
-			<form class="form-inline">
-				<div  class="container">
-				<table id="contenido">
-					<tr>
-						<td><label for="{{form.Nombre.name}}">{{form.Nombre.label}}</label></td>
-						<td>{{form.Nombre}}</td>
-					</tr>
-					<tr>
-						<td><label for="{{form.CantidadExistente.name}}">{{form.CantidadExistente.label}}</label></td>
-						<td>{{form.CantidadExistente}}</td>
-					</tr>
-					<tr>
-						<td><label for="{{form.CantidadPorHectarea.name}}">{{form.CantidadPorHectarea.label}}</label></td>
-						<td>{{form.CantidadPorHectarea}}</td>
-					</tr>
-				</table>
-				</div>
-				<hr/>
-				<input type="submit" class="btn btn-default" value="Agregar"/>
-			</form>
-		</form>
+    <div class="container">
+        <div class="row" >
+            <div class='col-md-12 col-sm-12 col-lg-4'>
 
-	</div>
-	<hr/>
-	<br/>
-	<table class="table">
-		<thead>
-			<tr>
-				<td>#</td>
-				<td>Nombre Semilla</td>
-				<td>Cantidad existente</td>
-				<td>Cantidad por hectarea</td>
-				<td>Ediciones disp.</td>
-			</tr>
-		</thead>
-		<tbody>
-			{% for list in semilla_list %}
-			<tr>
-				<td>{{list.id}}</td>
-				<td>{{list.Nombre}}</td>
-				<td>{{list.CantidadExistente}}</td>
-				<td>{{list.CantidadPorHectarea}}</td>
-				<td>
-                    <a href="{% url 'inventario:semilla_editar' list.id %}">Editar</a>
-                    <br>
-                    {% if request.user.is_superuser %}
-                        <a href="{% url 'inventario:semilla_eliminar' list.id %}">Eliminar</a>
-                    {% endif %}
-                </td>
-			</tr>
-			{% endfor %}
-		</tbody>
-		</table>
-</div>
+                <h1>Formulario de Ingreso</h1>
+                <br>
+
+                <form method="POST" action="" enctype='multipart/form-data'>
+                    {% csrf_token %}
+                    <form class="form-inline">
+                        <div  class="container">
+                            <table id="contenido">
+                                <tr>
+                                    <td><label for="{{form.Nombre.name}}">{{form.Nombre.label}}</label></td>
+                                    <td>{{form.Nombre}}</td>
+                                </tr>
+                                <tr>
+                                    <td><label for="{{form.CantidadExistente.name}}">{{form.CantidadExistente.label}}</label></td>
+                                    <td>{{form.CantidadExistente}}</td>
+                                </tr>
+                                <tr>
+                                    <td><label for="{{form.CantidadPorHectarea.name}}">{{form.CantidadPorHectarea.label}}</label></td>
+                                    <td>{{form.CantidadPorHectarea}}</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <br>
+                        <input type="submit" class="btn btn-default" value="Agregar"/>
+                    </form>
+                </form>
+            </div>
+            <br>
+            <div class="col-md-12 col-sm-12 col-lg-8">
+
+                <table class="table">
+                    <thead>
+                    <hr>
+                    <tr>
+                        <td>#</td>
+                        <td>Nombre Semilla</td>
+                        <td>Cantidad existente</td>
+                        <td>Cantidad por hectarea</td>
+                        <td>Ediciones disp.</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for list in semilla_list %}
+                        <tr>
+                            <td>{{list.id}}</td>
+                            <td>{{list.Nombre}}</td>
+                            <td>{{list.CantidadExistente}}</td>
+                            <td>{{list.CantidadPorHectarea}}</td>
+                            <td>
+                                <a href="{% url 'inventario:semilla_editar' list.id %}">Editar</a>
+                                <br>
+                                {% if request.user.is_superuser %}
+                                    <a href="{% url 'inventario:semilla_eliminar' list.id %}">Eliminar</a>
+                                {% endif %}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 {% endblock %}
 
 
