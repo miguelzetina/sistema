@@ -8,6 +8,7 @@ from . import settings
 
 handler404 = 'sistema.views.error404'
 handler403 = 'sistema.views.error403'
+handler500 = 'sistema.views.error500'
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
