@@ -1,18 +1,18 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="container">
-<form method="post">
-	{% csrf_token %}
-	<h3>¿Desea eliminar el siguiente elemento?</h3>
-    <h4>{{object.Nombre}}
-        {% if object.CantidadExistente > 0 %}
-            con {{ object.CantidadExistente }} semillas.
-        {% else %}
-            sin semillas.
-        {% endif %}
-    </h4>
-	<button class="btn btn-danger" type="submit"> Eliminar</button>
-	<a class="btn btn-default" href="{% url 'inventario:semilla' %}">Cancelar</a>
-</form>
+<div class="container text-center">
+    <form method="post">
+        {% csrf_token %}
+        <h3>¿Desea eliminar el siguiente elemento?</h3>
+        <h4>{{object.Nombre}}
+            {% if object.CantidadExistente > 0 %}
+                con {{ object.CantidadExistente }} semillas.
+            {% else %}
+                sin semillas.
+            {% endif %}
+        </h4>
+        <button class="btn btn-danger" type="submit"> Eliminar</button>
+        <a class="btn btn-default" href="{% url 'inventario:semilla' %}">Cancelar</a>
+    </form>
 </div>
 {% endblock %}
