@@ -81,7 +81,7 @@ def semillaUpdate(request, id_semilla):
             form.save()
         return redirect("inventario:semilla")
 
-    return render(request, "ingreso_semilla.html", {'form': form})
+    return render(request, "update_semilla.html", {'form': form})
 
 
 class SemillaDelete(DeleteView):
