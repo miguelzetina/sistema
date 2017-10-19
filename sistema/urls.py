@@ -13,6 +13,7 @@ handler500 = 'sistema.views.error500'
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^', include("inventario.urls", namespace="inventario")),
+    url(r'^accounts/', include("accounts.urls", namespace="accounts")),
 ]
 
 if settings.DEBUG404:

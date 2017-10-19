@@ -16,10 +16,16 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'inventario.apps.InventarioConfig',
-    'usuario.apps.UsuarioConfig',
-    'movimiento.apps.MovimientoConfig',
 
+    # Personal Apps
+    'inventario',
+    'usuario',
+    'movimiento',
+    'accounts',
+
+    # Thirds Apps
+    'pagedown',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -102,3 +108,6 @@ if not DEBUG:
 MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), "media_cdn")
 """
+
+
+CRISPY_TEMPLATE_PACK = 'bootstrap3'
