@@ -4,7 +4,7 @@ from .views import semilla_list, SemillaCreate, semillaUpdate, SemillaDelete
 
 urlpatterns = [
     url(r'^$', semilla_list, name='list'),
-    url(r'^semilla/$', SemillaCreate.as_view(), name='semilla'),
-    url(r'^semilla/editar/(?P<id_semilla>\d+)$', semillaUpdate, name='semilla_editar'),
-    url(r'^semilla/eliminar/(?P<pk>\d+)$', SemillaDelete.as_view(), name='semilla_eliminar'),
+    url(r'^inventario/$', SemillaCreate.as_view(), name='inventario'),
+    url(r'^inventario/editar/(?P<id_semilla>\d+)$', semillaUpdate, name='inventario_editar'),
+    url(r'^inventario/eliminar/(?P<pk>\d+)$', SemillaDelete.as_view(), name='inventario_eliminar'),
 ]
