@@ -42,7 +42,7 @@ class SemillaCreate(CreateView):
     model = Semilla
     template_name = "ingreso_semilla.html"
     form_class = SemillaForm
-    success_url = reverse_lazy('inventario:semilla')
+    success_url = reverse_lazy('inventario:inventario')
 
     def dispatch(self, request, *args, **kwargs):
         if not request.user.is_staff:
@@ -79,7 +79,7 @@ def semillaUpdate(request, id_semilla):
         form = SemillaForm(request.POST, instance=semilla)
         if form.is_valid():
             form.save()
-        return redirect("inventario:semilla")
+        return redirect("inventario:inventario")
 
     return render(request, "update_semilla.html", {'form': form})
 
@@ -88,7 +88,7 @@ class SemillaDelete(DeleteView):
     model = Semilla
     template_name = "semilla_delete.html"
     form_class = SemillaForm
-    success_url = reverse_lazy("inventario:semilla")
+    success_url = reverse_lazy("inventario:inventario")
 
     def dispatch(self, request, *args, **kwargs):
         if not request.user.is_superuser:
